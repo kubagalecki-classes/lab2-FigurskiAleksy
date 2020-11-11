@@ -16,29 +16,33 @@ class ResourceManager
 
     ResourceManager(const ResourceManager& l)
     {
-      a= new Resource(*(l.a));
+      a= new Resource{*l.a};
     }//kopiowanie
 
-    ResourceManager(ResourceManager$$ l) : a(l.a)
+    ResourceManager(ResourceManager$$ m)
     {
-      l.a = nullptr;
+      a=m.a;
+      m.a = nullptr;
     }//przenoszenie
 
-    ResourceManager& operator=(ResourceManager&& l)
+    ResourceManager& operator=(ResourceManager&& m)
     {
-      if(&l==b)
+      if(b != &m)
+      {
+        delete a;
+        a=m.a;
+        m.a=nullptr;
+      }
       return *b;
-      delete a;
-      a=l.a;
-      l.a = nullptr;
-      return *b;
+    
     }//operator przenoszenie
 
-    ResourceManager& operator=(const ResourceManager& l)
+    ResourceManager& operator=(const ResourceManager& m)
     {
-      if(b!=&l)
+      if(b!=&m)
       {
-        *a=*(l.a);
+        delete a;
+        a=new Resource{*m.a};
       }
       return *b;
     }//operator kopiujacy
@@ -53,5 +57,8 @@ class ResourceManager
     double get()
     {
       return a->get();
-    };//get
+    }//get
+
+  private:
+  Resource* a = nullptr;
 };
