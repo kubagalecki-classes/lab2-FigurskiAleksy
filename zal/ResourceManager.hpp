@@ -16,12 +16,12 @@ class ResourceManager
 
     ResourceManager(const ResourceManager& l)
     {
-      a= new Resource(*l.a));
+      a= new Resource(*(l.a));
     }//kopiowanie
 
-    ResourceManager(ResourceManager$$ l):a(l.a)
+    ResourceManager(ResourceManager$$ l) : a(l.a)
     {
-      l.a=nullptr;
+      l.a = nullptr;
     }//przenoszenie
 
     ResourceManager& operator=(ResourceManager&& l)
