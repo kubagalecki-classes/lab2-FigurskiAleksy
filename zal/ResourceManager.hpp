@@ -51,5 +51,5 @@ class ResourceManager
     ~ResourceManager()
     {
       delete a;
-    }
+    }//destruktor
 };
