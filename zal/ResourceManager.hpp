@@ -43,4 +43,9 @@ class ResourceManager
       return *b;
     }//operator kopiujacy
 
+    double get()
+    {
+      return a->get();
+    };//get
+
 };
