@@ -43,13 +43,15 @@ class ResourceManager
       return *b;
     }//operator kopiujacy
 
-    double get()
-    {
-      return a->get();
-    };//get
+    
 
     ~ResourceManager()
     {
       delete a;
     }//destruktor
+    
+    double get()
+    {
+      return a->get();
+    };//get
 };
