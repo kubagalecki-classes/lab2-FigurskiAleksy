@@ -34,4 +34,13 @@ class ResourceManager
       return *b;
     }//operator przenoszenie
 
+    ResourceManager& operator=(const ResourceManager& l)
+    {
+      if(b!=&l)
+      {
+        *a=*(l.a);
+      }
+      return *b;
+    }//operator kopiujacy
+
 };
