@@ -26,7 +26,12 @@ class ResourceManager
 
     ResourceManager& operator=(ResourceManager&& l)
     {
-      i
-    }
+      if(&l==b)
+      return *b;
+      delete a;
+      a=l.a;
+      l.a = nullptr;
+      return *b;
+    }//operator przenoszenie
 
 };
