@@ -5,7 +5,7 @@
 class ResourceManager
 {
    public:
-   
+
     ResourceManager()
     {
       a=new Resource;
@@ -14,7 +14,7 @@ class ResourceManager
 
     ResourceManager(const ResourceManager& l)
     {
-      a= new Resource{*l.a};
+      a= new Resource(*l.a);
     }//kopiowanie
 
     ResourceManager(ResourceManager&& m)
@@ -25,24 +25,24 @@ class ResourceManager
 
     ResourceManager& operator=(ResourceManager&& m)
     {
-      if(b != &m)
+      if(this != &m)
       {
         delete a;
         a=m.a;
         m.a=nullptr;
       }
-      return *b;
+      return *this;
     
     }//operator przenoszenie
 
     ResourceManager& operator=(const ResourceManager& m)
     {
-      if(b!=&m)
+      if(this !=&m)
       {
         delete a;
-        a=new Resource{*m.a};
+        a=new Resource(*m.a);
       }
-      return *b;
+      return *this;
     }//operator kopiujacy
 
     
