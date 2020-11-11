@@ -48,4 +48,8 @@ class ResourceManager
       return a->get();
     };//get
 
+    ~ResourceManager()
+    {
+      delete a;
+    }
 };
