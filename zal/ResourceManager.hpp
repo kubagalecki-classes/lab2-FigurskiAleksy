@@ -11,7 +11,7 @@ class ResourceManager
     ResourceManager()
     {
       a=new Resource;
-    };//domyslny
+    }//domyslny
     
 
     ResourceManager(const ResourceManager& l)
@@ -19,7 +19,7 @@ class ResourceManager
       a= new Resource{*l.a};
     }//kopiowanie
 
-    ResourceManager(ResourceManager$$ m)
+    ResourceManager(ResourceManager&& m)
     {
       a=m.a;
       m.a = nullptr;
