@@ -5,9 +5,7 @@
 class ResourceManager
 {
    public:
-
-    Resource* a;
-
+   
     ResourceManager()
     {
       a=new Resource;
